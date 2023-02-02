@@ -1,0 +1,22 @@
+# Cron Schedules have been converted using UTC Time Zone and may need to be updated for your location
+schedules:
+- cron: 0 6 * * 0
+  branches:
+    include:
+    - refs/heads/main
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self
+    fetchDepth: 1
+  - task: AzurePowerShell@5
+    displayName: 'Azure PowerShell script: FilePath'
+    inputs:
+      ConnectedServiceNameARM: SC.AzDeploymentCleanup
+      ScriptPath: Remove-AzDeployment.ps1
+      ScriptArguments: -ManagementGroupName  mg-landingzones  -NumberOfDeploymentsToKeep 1
+      TargetAzurePs: LatestVersion
+...
