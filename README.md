@@ -2,6 +2,8 @@
 
 A script and Azure DevOps pipeline for cleaning up old [Azure resource group deployments](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/deployment-quota-exceeded?tabs=azure-cli&WT.mc_id=AZ-MVP-5004796).
 
+Refer to Blog article: [Azure Deployment history cleanup with Azure DevOps](https://luke.geek.nz/azure/azure-deployment-cleanup-with-azure-devops/)
+
 ## Parameters
 - `ManagementGroupName` (Mandatory) : The name of the management group for which to clean up deployments.
 - `NumberOfDeploymentsToKeep` (Mandatory) : The number of deployments to keep in each resource group. The script will delete all other deployments.
